@@ -37,3 +37,4 @@ fp32/trunk.onnx.data filter=lfs diff=lfs merge=lfs -text
 fp32/diffusion_step.onnx.data filter=lfs diff=lfs merge=lfs -text
 fp16/trunk_fp16.onnx.data filter=lfs diff=lfs merge=lfs -text
 fp16/diffusion_step_fp16.onnx.data filter=lfs diff=lfs merge=lfs -text
+int8/trunk_int8.onnx.data filter=lfs diff=lfs merge=lfs -text
