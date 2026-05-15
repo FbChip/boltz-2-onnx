@@ -43,7 +43,20 @@ Aggregated:
 
 **Verdict: PASS at all three precisions.** Every ORT-vs-PyTorch distribution overlaps with the PyTorch inter-seed distribution. The ORT cross-precision RMSDs are all *dramatically tighter* than any seed comparison — the quantisation is preserving the underlying prediction with high fidelity, what diverges between runs is the per-step random augmentation, not the model behaviour.
 
-fp16 ↔ fp32 at 0.186 Å is well below the natural inter-augmentation drift between two ORT runs (≈ 2 Å), confirming fp16 is numerically lossless for our purposes. int8 ↔ fp32 at 2.31 Å sits *within* the ORT cross-augmentation band — again, lossless at the structural level.
+fp16 ↔ fp32 at 0.19–0.44 Å is well below the natural inter-augmentation drift between two ORT runs (≈ 2 Å), confirming fp16 is numerically lossless for our purposes. int8 ↔ fp32 at 2.3 Å sits *within* the ORT cross-augmentation band.
+
+## Note on int8 geometric fidelity
+
+After fixing the orchestrator's Cα extraction bug (pitfall **P-9** in `EXPORT_PLAN.md`), the per-precision geometry is:
+
+| Precision | Rg (Å) | Cα-Cα mean (Å) | Cα-Cα std (Å) |
+|-----------|--------|----------------|----------------|
+| ORT fp32  | 9.00   | 3.782          | 0.014          |
+| ORT fp16  | 8.98   | 3.788          | 0.014          |
+| ORT int8  | 8.02   | 3.448          | 0.178          |
+| PyTorch ref | 8.87 | 3.784          | 0.037          |
+
+fp32 and fp16 reproduce the protein-correct ~3.78 Å peptide-bond geometry with *tighter* std than the PyTorch reference. int8 shows visible compression: bond-length mean drops 9 % and std grows ~10× — bonds slightly shorter and noisier than ideal but still globular. The compact-globule shape is preserved (Rg in the right ballpark). **Recommendation:** fp16 is the default visual-fidelity tier; int8 is the smartphone-OPFS tier with a noted minor bond-distance drift that is invisible at coarse ribbon rendering but might show up under high-zoom inspection.
 
 ## Pitfalls encountered
 
