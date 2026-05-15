@@ -2,5 +2,5 @@
 license: mit
 base_model:
 - boltz-community/boltz-2
-library_name: transformers.js
+library_name: onnx
 ---
