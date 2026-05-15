@@ -252,6 +252,33 @@ Live document; append as you discover things. Each entry: symptom → root cause
 - **Fix:** `del fp16_model.graph.value_info[:]` after conversion. ORT
   re-infers cleanly.
 
+### P-9 — `token_to_rep_atom` is Cβ, not Cα (orchestration-side trap)
+- **Symptom:** Visual inspection of the orchestrated PDB shows a tangled
+  rope-like chain. Cα-Cα consecutive distances measure ~5.3 Å (±0.4)
+  instead of the protein-correct 3.8 Å (±0.04). Quantization is identical
+  across fp32/fp16/int8, ruling out the model.
+- **Root cause:** Boltz's feats dict has TWO token→atom one-hot maps:
+  - `token_to_center_atom` — points at the **center atom** which is Cα for
+    every protein residue (`boltz/data/const.py:res_to_center_atom`).
+  - `token_to_rep_atom` — points at the **distogram atom** which is Cβ for
+    every protein residue except Gly (which has no Cβ → Cα)
+    (`boltz/data/const.py:res_to_disto_atom`).
+  Using `token_to_rep_atom` for the final PDB extraction silently writes
+  Cβ coordinates into a file that labels them "CA". Adjacent Cβ atoms are
+  ~5.3 Å apart (geometry of the side chain) — chain looks scrunched and
+  knotted when rendered as a Cα-trace tube.
+- **Fix:** in `boltz_orchestrate.py` (and any TS port), extract the Cα
+  coords via
+  `torch.einsum("bna,bad->bnd", feats["token_to_center_atom"].float(), atom_coords)`.
+  Reserve `token_to_rep_atom` for its intended use — feeding the
+  distogram-input pipeline inside the trunk and confidence graphs (which
+  is where it's *correctly* used and shouldn't be changed).
+- **Bonus note:** The Phase 4 noise-floor argument was correct math-wise
+  but had inflated absolute numbers (~7 Å instead of ~6 Å) because Cβ
+  coordinates from the ORT side were being compared against Cα coords
+  from the PyTorch CLI side, adding ~1 Å of irrelevant displacement to
+  every Cα-Cβ pair.
+
 ### P-8 — int8 dynamic quantizer's shape-infer pass trips on dynamo graphs
 - **Symptom:** `onnxruntime.quantization.quantize_dynamic` fails with
   `InferenceError: Inferred shape and existing shape differ in dimension 0:
