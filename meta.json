@@ -1,0 +1,753 @@
+{
+  "schema_version": "0.1.0",
+  "model": {
+    "family": "boltz-2",
+    "weights_source": "boltz-community/boltz-2 (default)",
+    "scope": "single-sequence protein only (no MSA, no templates, no affinity head)",
+    "concrete_shapes": {
+      "B": 1,
+      "N_max": 46,
+      "A_max": 352,
+      "note": "Graphs exported with concrete shapes. Dynamic axes are a Phase 5+ follow-up."
+    },
+    "hyperparams": {
+      "token_s": 384,
+      "token_z": 128,
+      "atoms_per_window_queries_W": 32,
+      "atoms_per_window_keys_H": 128,
+      "max_num_atoms_per_token": 23
+    }
+  },
+  "diffusion": {
+    "sigma_min": 0.0001,
+    "sigma_max": 160.0,
+    "sigma_data": 16.0,
+    "rho": 7.0,
+    "gamma_0": 0.8,
+    "gamma_min": 1.0,
+    "noise_scale": 1.003,
+    "step_scale": 1.5,
+    "alignment_reverse_diff": true,
+    "default_num_sampling_steps": 5,
+    "schedule_formula": "for i in range(num_sampling_steps): sigmas[i] = (sigma_max**(1/rho) + i/(num-1) * (sigma_min**(1/rho) - sigma_max**(1/rho)))**rho * sigma_data; then append 0.0 as final step."
+  },
+  "graphs": {
+    "trunk": {
+      "files": {
+        "fp32": "fp32/trunk.onnx (+ trunk.onnx.data)",
+        "fp16": "fp16/trunk_fp16.onnx (+ trunk_fp16.onnx.data)",
+        "int8": "int8/trunk_int8.onnx (+ trunk_int8.onnx.data)"
+      },
+      "purpose": "One recycling pass. JS owns the recycling loop \u2014 feed (s, z) back as (s_prev, z_prev) for the next iteration.",
+      "inputs": "78 feats tensors (see feats_spec below) + s_prev [B, N, token_s] + z_prev [B, N, N, token_z]. On iteration 0, s_prev and z_prev are zeros.",
+      "outputs": [
+        {
+          "name": "s",
+          "shape": "[B, N, token_s]",
+          "dtype": "float32"
+        },
+        {
+          "name": "z",
+          "shape": "[B, N, N, token_z]",
+          "dtype": "float32"
+        },
+        {
+          "name": "pdistogram",
+          "shape": "[B, N, N, 1, 64]",
+          "dtype": "float32"
+        },
+        {
+          "name": "q",
+          "shape": "[B, A, 128]",
+          "dtype": "float32"
+        },
+        {
+          "name": "c",
+          "shape": "[B, A, 128]",
+          "dtype": "float32"
+        },
+        {
+          "name": "atom_enc_bias",
+          "shape": "[B, K, W, H, 12]  K=A/W, W=atoms_per_window_queries_W, H=atoms_per_window_keys_H",
+          "dtype": "float32"
+        },
+        {
+          "name": "atom_dec_bias",
+          "shape": "[B, K, W, H, 12]",
+          "dtype": "float32"
+        },
+        {
+          "name": "token_trans_bias",
+          "shape": "[B, N, N, token_s]",
+          "dtype": "float32"
+        },
+        {
+          "name": "s_inputs",
+          "shape": "[B, N, token_s]",
+          "dtype": "float32"
+        }
+      ]
+    },
+    "diffusion_step": {
+      "files": {
+        "fp32": "fp32/diffusion_step.onnx (+ .data)",
+        "fp16": "fp16/diffusion_step_fp16.onnx (+ .data)",
+        "int8": "int8/diffusion_step_int8.onnx (+ .data)"
+      },
+      "purpose": "One denoising step. JS owns the sampling loop.",
+      "inputs": "78 feats tensors + the 8 trunk-cached tensors (s, s_inputs, q, c, atom_enc_bias, atom_dec_bias, token_trans_bias) + x_noisy [B, A, 3] (current atom coords) + sigma [B] (1-D tensor with t_hat = sigma_tm * (1 + gamma); must NOT be a scalar).",
+      "outputs": [
+        {
+          "name": "x_denoised",
+          "shape": "[B, A, 3]",
+          "dtype": "float32"
+        }
+      ],
+      "to_keys_note": "to_keys (used by the atom encoder) is NOT a graph input. The diffusion graph reconstructs it internally via get_indexing_matrix(K=A/W, W, H) at trace time."
+    },
+    "confidence": {
+      "files": {
+        "fp32": "(local: phase5b_confidence/confidence.onnx) \u2014 not yet uploaded to HF",
+        "fp16": "(local: phase5b_confidence/confidence_fp16.onnx)",
+        "int8": "(local: phase5b_confidence/confidence_int8.onnx)"
+      },
+      "purpose": "Confidence head \u2014 one forward pass after diffusion completes.",
+      "inputs": "78 feats tensors + s_inputs [B, N, token_s] + s [B, N, token_s] + z [B, N, N, token_z] + x_pred [B, A, 3] (final denoised atom coords).",
+      "outputs": [
+        {
+          "name": "plddt_logits",
+          "shape": "[B, N, 50]",
+          "dtype": "float32"
+        },
+        {
+          "name": "pae_logits",
+          "shape": "[B, N, N, 64]",
+          "dtype": "float32"
+        },
+        {
+          "name": "pde_logits",
+          "shape": "[B, N, N, 64]",
+          "dtype": "float32"
+        },
+        {
+          "name": "resolved_logits",
+          "shape": "[B, N, 2]",
+          "dtype": "float32"
+        }
+      ]
+    }
+  },
+  "orchestration": {
+    "recycling_loop": "for i in range(recycling_steps + 1):\n    s, z, pdistogram, q, c, aeb, adb, ttb, s_inputs = trunk(feats, s_prev, z_prev)\n    s_prev = s; z_prev = z\n(s_prev, z_prev start as zeros on iteration 0.)",
+    "sampling_loop": "sigmas = build sigma schedule (length sampling_steps+1, last = 0)\ngammas = where(sigmas > gamma_min, gamma_0, 0.0)\natom_coords = sigmas[0] * randn([B, A, 3])\natom_coords_denoised = None\nfor step in range(sampling_steps):\n    sigma_tm, sigma_t, gamma = sigmas[step], sigmas[step+1], gammas[step+1]\n    R, tr = compute_random_augmentation(B)   # Haar uniform rotation + translation\n    atom_coords = (atom_coords - atom_coords.mean(axis=-2, keepdims=True)) @ R + tr\n    if atom_coords_denoised is not None:\n        atom_coords_denoised = (atom_coords_denoised - atom_coords_denoised.mean(axis=-2, keepdims=True)) @ R + tr\n    t_hat = sigma_tm * (1 + gamma)\n    noise_var = noise_scale**2 * (t_hat**2 - sigma_tm**2)\n    eps = sqrt(noise_var) * randn([B, A, 3])\n    atom_coords_noisy = atom_coords + eps\n    atom_coords_denoised = diffusion_step(feats, s, s_inputs, q, c, aeb, adb, ttb,\n                                         x_noisy=atom_coords_noisy,\n                                         sigma=[t_hat])  # 1-D tensor\n    if alignment_reverse_diff:  # default True for Boltz-2\n        atom_coords_noisy = weighted_rigid_align(atom_coords_noisy, atom_coords_denoised, atom_mask, atom_mask)\n    denoised_over_sigma = (atom_coords_noisy - atom_coords_denoised) / t_hat\n    atom_coords = atom_coords_noisy + step_scale * (sigma_t - t_hat) * denoised_over_sigma",
+    "ca_extraction": "USE `token_to_center_atom`, NOT `token_to_rep_atom`!\nca_coords = einsum('bna,bad->bnd', feats['token_to_center_atom'].float(), atom_coords)\nshape: [B, N, 3]. Drop the batch dim for PDB writing.\nWHY: token_to_rep_atom points at C\u03b2 (distogram input). token_to_center_atom points at C\u03b1. Using rep_atom for C\u03b1 output writes C\u03b2 coords labeled 'CA' \u2014 produces a tangled rope when rendered. See P-9 in EXPORT_PLAN.md for the postmortem.",
+    "plddt_decoding": "Per-residue pLDDT from plddt_logits [B, N, 50]:\nprobs = softmax(plddt_logits, axis=-1)\nbin_width = 1.0 / 50 = 0.02\nbin_centers = [0.01, 0.03, 0.05, ..., 0.99]  # 50 values, bin_width * (i + 0.5)\nplddt = sum(probs * bin_centers, axis=-1)   # [B, N] in [0, 1]\nplddt_for_display = plddt * 100             # in [0, 100]"
+  },
+  "feats_spec": {
+    "affinity_token_mask": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "asym_id": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "atom_backbone_feat": {
+      "shape": [
+        1,
+        352,
+        17
+      ],
+      "dtype": "int64"
+    },
+    "atom_pad_mask": {
+      "shape": [
+        1,
+        352
+      ],
+      "dtype": "float32"
+    },
+    "atom_resolved_mask": {
+      "shape": [
+        1,
+        352
+      ],
+      "dtype": "bool"
+    },
+    "atom_to_token": {
+      "shape": [
+        1,
+        352,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "bfactor": {
+      "shape": [
+        1,
+        352
+      ],
+      "dtype": "float32"
+    },
+    "chiral_atom_index": {
+      "shape": [
+        1,
+        4,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "chiral_atom_orientations": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "bool"
+    },
+    "chiral_reference_mask": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "bool"
+    },
+    "connected_atom_index": {
+      "shape": [
+        1,
+        2,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "connected_chain_index": {
+      "shape": [
+        1,
+        2,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "contact_conditioning": {
+      "shape": [
+        1,
+        46,
+        46,
+        5
+      ],
+      "dtype": "int64"
+    },
+    "contact_negation_mask": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "bool"
+    },
+    "contact_pair_index": {
+      "shape": [
+        1,
+        2,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "contact_threshold": {
+      "shape": [
+        1,
+        46,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "contact_thresholds": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "float32"
+    },
+    "contact_union_index": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "coords": {
+      "shape": [
+        1,
+        1,
+        352,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "cyclic_period": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "deletion_mean": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "deletion_value": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "disto_center": {
+      "shape": [
+        1,
+        46,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "disto_coords_ensemble": {
+      "shape": [
+        1,
+        1,
+        46,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "disto_target": {
+      "shape": [
+        1,
+        46,
+        46,
+        1,
+        64
+      ],
+      "dtype": "float32"
+    },
+    "ensemble_ref_idxs": {
+      "shape": [
+        1,
+        1
+      ],
+      "dtype": "int64"
+    },
+    "entity_id": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "frame_resolved_mask": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "bool"
+    },
+    "frames_idx": {
+      "shape": [
+        1,
+        1,
+        46,
+        3
+      ],
+      "dtype": "int64"
+    },
+    "has_deletion": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "bool"
+    },
+    "method_feature": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "modified": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "mol_type": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "msa": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "msa_mask": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "msa_paired": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "planar_bond_index": {
+      "shape": [
+        1,
+        6,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "planar_ring_5_index": {
+      "shape": [
+        1,
+        5,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "planar_ring_6_index": {
+      "shape": [
+        1,
+        6,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "plddt": {
+      "shape": [
+        1,
+        352
+      ],
+      "dtype": "float32"
+    },
+    "profile": {
+      "shape": [
+        1,
+        46,
+        33
+      ],
+      "dtype": "float32"
+    },
+    "query_to_template": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "r_set_to_rep_atom": {
+      "shape": [
+        1,
+        46,
+        352
+      ],
+      "dtype": "int64"
+    },
+    "rdkit_bounds_angle_mask": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "bool"
+    },
+    "rdkit_bounds_bond_mask": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "bool"
+    },
+    "rdkit_bounds_index": {
+      "shape": [
+        1,
+        2,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "rdkit_lower_bounds": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "float32"
+    },
+    "rdkit_upper_bounds": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "float32"
+    },
+    "ref_atom_name_chars": {
+      "shape": [
+        1,
+        352,
+        4,
+        64
+      ],
+      "dtype": "int64"
+    },
+    "ref_charge": {
+      "shape": [
+        1,
+        352
+      ],
+      "dtype": "float32"
+    },
+    "ref_chirality": {
+      "shape": [
+        1,
+        352
+      ],
+      "dtype": "int64"
+    },
+    "ref_element": {
+      "shape": [
+        1,
+        352,
+        128
+      ],
+      "dtype": "int64"
+    },
+    "ref_pos": {
+      "shape": [
+        1,
+        352,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "ref_space_uid": {
+      "shape": [
+        1,
+        352
+      ],
+      "dtype": "int64"
+    },
+    "res_type": {
+      "shape": [
+        1,
+        46,
+        33
+      ],
+      "dtype": "int64"
+    },
+    "residue_index": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "stereo_bond_index": {
+      "shape": [
+        1,
+        4,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "stereo_bond_orientations": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "bool"
+    },
+    "stereo_reference_mask": {
+      "shape": [
+        1,
+        0
+      ],
+      "dtype": "bool"
+    },
+    "sym_id": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "symmetric_chain_index": {
+      "shape": [
+        1,
+        2,
+        0
+      ],
+      "dtype": "int64"
+    },
+    "template_ca": {
+      "shape": [
+        1,
+        1,
+        46,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "template_cb": {
+      "shape": [
+        1,
+        1,
+        46,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "template_frame_rot": {
+      "shape": [
+        1,
+        1,
+        46,
+        3,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "template_frame_t": {
+      "shape": [
+        1,
+        1,
+        46,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "template_mask": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "template_mask_cb": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "template_mask_frame": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "template_restype": {
+      "shape": [
+        1,
+        1,
+        46,
+        33
+      ],
+      "dtype": "int64"
+    },
+    "token_bonds": {
+      "shape": [
+        1,
+        46,
+        46,
+        1
+      ],
+      "dtype": "float32"
+    },
+    "token_disto_mask": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "token_index": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "token_pad_mask": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "token_resolved_mask": {
+      "shape": [
+        1,
+        46
+      ],
+      "dtype": "float32"
+    },
+    "token_to_center_atom": {
+      "shape": [
+        1,
+        46,
+        352
+      ],
+      "dtype": "int64"
+    },
+    "token_to_rep_atom": {
+      "shape": [
+        1,
+        46,
+        352
+      ],
+      "dtype": "int64"
+    },
+    "type_bonds": {
+      "shape": [
+        1,
+        46,
+        46
+      ],
+      "dtype": "int64"
+    },
+    "visibility_ids": {
+      "shape": [
+        1,
+        1,
+        46
+      ],
+      "dtype": "float32"
+    }
+  }
+}
