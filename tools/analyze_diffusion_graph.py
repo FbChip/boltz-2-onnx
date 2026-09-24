@@ -1,8 +1,9 @@
-"""Compiler-oriented analysis of the fp16 diffusion-step ONNX graph.
+"""Compiler-oriented analysis of an fp16 ONNX graph.
 
 Usage:
     python tools/analyze_diffusion_graph.py
     python tools/analyze_diffusion_graph.py path/to/diffusion_step_fp16.onnx
+    python tools/analyze_diffusion_graph.py path/to/trunk_fp16.onnx
 
 The graph is loaded without external tensor data because this analysis only
 needs graph structure, initializers, and value metadata.

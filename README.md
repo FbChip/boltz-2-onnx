@@ -23,6 +23,7 @@ For compiler investigation, `tools/analyze_diffusion_graph.py` inventories MatMu
 
 ```bash
 python tools/analyze_diffusion_graph.py
+python tools/analyze_diffusion_graph.py fp16/trunk_fp16.onnx
 ```
 
 The cost and traffic values are static planning estimates based on inferred shapes, not measured runtime.
