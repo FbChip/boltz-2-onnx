@@ -19,6 +19,14 @@ ONNX-Runtime-compatible export of **Boltz-2** ([Wohlwend et al., 2024–2025](ht
 
 The [Colab notebook](colab_fp16_graph.ipynb) downloads the fp16 graphs, reports their signatures, detects CUDA support, and opens the graphs in an interactive Netron viewer. A complete sequence-to-structure run additionally needs the Boltz preprocessing and orchestration pipeline.
 
+For compiler investigation, `tools/analyze_diffusion_graph.py` inventories MatMul shapes and FLOPs, expands Einsum equations, estimates operator FLOPs and memory traffic, reports contiguous accelerator regions for MatMul/LayerNormalization/Softmax, and identifies attention candidates:
+
+```bash
+python tools/analyze_diffusion_graph.py
+```
+
+The cost and traffic values are static planning estimates based on inferred shapes, not measured runtime.
+
 This is **v0**: single-sequence protein only, no MSA, no templates, no affinity head. Confidence and full-atom output included. Three precision tiers.
 
 ## What's here
