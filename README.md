@@ -38,6 +38,14 @@ This writes `fp16/trunk_fp16_operator_report.csv`, `fp16/diffusion_step_fp16_ope
 
 See [`reports/operator_acceleration_summary.md`](reports/operator_acceleration_summary.md) for the proposed MatMul/LayerNorm/Softmax/Einsum accelerator partition for both fp16 graphs.
 
+To group every MatMul by identical input/output shapes and rank groups by FLOPs per occurrence:
+
+```bash
+python tools/export_matmul_groups.py
+```
+
+This writes grouped CSVs under `fp16/` and [`reports/matmul_groups.md`](reports/matmul_groups.md).
+
 This is **v0**: single-sequence protein only, no MSA, no templates, no affinity head. Confidence and full-atom output included. Three precision tiers.
 
 ## What's here
