@@ -36,6 +36,8 @@ python tools/export_operator_report.py
 
 This writes `fp16/trunk_fp16_operator_report.csv`, `fp16/diffusion_step_fp16_operator_report.csv`, and the combined `fp16_operator_report.csv`. Estimates are static graph-analysis values, not measured runtime.
 
+See [`reports/operator_acceleration_summary.md`](reports/operator_acceleration_summary.md) for the proposed MatMul/LayerNorm/Softmax/Einsum accelerator partition for both fp16 graphs.
+
 This is **v0**: single-sequence protein only, no MSA, no templates, no affinity head. Confidence and full-atom output included. Three precision tiers.
 
 ## What's here
