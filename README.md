@@ -15,6 +15,10 @@ base_model: boltz-community/boltz-2
 
 ONNX-Runtime-compatible export of **Boltz-2** ([Wohlwend et al., 2024–2025](https://doi.org/10.1101/2025.06.14.659707); MIT-licensed), produced by [boltz-dev](https://github.com/jwohlwend/boltz). Split into two graphs so the inference loop (recycling + diffusion sampling) can run client-side — designed for [biocircus.io](https://biocircus.io), which loads these via ONNX Runtime Web + WebGPU and lets a user predict a structure entirely inside the browser tab.
 
+[![Open fp16 graph viewer in Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FbChip/boltz-2-onnx/blob/main/colab_fp16_graph.ipynb)
+
+The [Colab notebook](colab_fp16_graph.ipynb) downloads the fp16 graphs, reports their signatures, detects CUDA support, and opens the graphs in an interactive Netron viewer. A complete sequence-to-structure run additionally needs the Boltz preprocessing and orchestration pipeline.
+
 This is **v0**: single-sequence protein only, no MSA, no templates, no affinity head. Confidence and full-atom output included. Three precision tiers.
 
 ## What's here
