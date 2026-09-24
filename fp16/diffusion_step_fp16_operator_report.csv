@@ -1,0 +1,533 @@
+Graph,Node Index,Operator,Tensor Shapes,Estimated FLOPs
+diffusion_step_fp16.onnx,25,MatMul,"inputs=[1, 352, 3], [3, 128] -> outputs=[1, 352, 128]",270336
+diffusion_step_fp16.onnx,42,Einsum,"inputs=[1, 22, 16, 1], [22, 88] -> outputs=[1, 88, 16, 1]",61952
+diffusion_step_fp16.onnx,52,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,55,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,63,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,66,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,74,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,77,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,224,Einsum,"inputs=[1, 22, 16, 1], [22, 88] -> outputs=[1, 88, 16, 1]",61952
+diffusion_step_fp16.onnx,234,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,237,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,245,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,248,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,256,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,259,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,272,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,287,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,290,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,292,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,299,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,302,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,304,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,306,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,309,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,312,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,315,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,318,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,321,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,324,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,327,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,330,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,333,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,336,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,339,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,342,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,345,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,348,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,351,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,354,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,357,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,360,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,363,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,366,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,369,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,372,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,375,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,378,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,381,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,384,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,387,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,390,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,393,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,396,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,399,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,402,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,405,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,408,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,411,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,414,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,417,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,420,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,423,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,426,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,429,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,432,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,435,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,438,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,441,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,444,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,447,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,458,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,462,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,465,Einsum,"inputs=[1, 22, 16, 128], [22, 88] -> outputs=[1, 88, 16, 128]",7929856
+diffusion_step_fp16.onnx,467,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,470,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,472,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,474,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,476,Einsum,"inputs=[11, 32, 4, 32], [11, 128, 4, 32] -> outputs=[11, 4, 32, 128]",11534336
+diffusion_step_fp16.onnx,481,Softmax,"inputs=[11, 4, 32, 128] -> outputs=[11, 4, 32, 128]",901120
+diffusion_step_fp16.onnx,483,Einsum,"inputs=[11, 4, 32, 128], [11, 128, 4, 32] -> outputs=[11, 32, 4, 32]",11534336
+diffusion_step_fp16.onnx,486,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,497,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,501,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,503,MatMul,"inputs=[11, 32, 128], [128, 512] -> outputs=[11, 32, 512]",46137344
+diffusion_step_fp16.onnx,508,MatMul,"inputs=[11, 32, 128], [128, 256] -> outputs=[11, 32, 256]",23068672
+diffusion_step_fp16.onnx,510,MatMul,"inputs=[11, 32, 256], [256, 128] -> outputs=[11, 32, 128]",23068672
+diffusion_step_fp16.onnx,521,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,525,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,528,Einsum,"inputs=[1, 22, 16, 128], [22, 88] -> outputs=[1, 88, 16, 128]",7929856
+diffusion_step_fp16.onnx,530,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,533,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,535,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,537,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,539,Einsum,"inputs=[11, 32, 4, 32], [11, 128, 4, 32] -> outputs=[11, 4, 32, 128]",11534336
+diffusion_step_fp16.onnx,544,Softmax,"inputs=[11, 4, 32, 128] -> outputs=[11, 4, 32, 128]",901120
+diffusion_step_fp16.onnx,546,Einsum,"inputs=[11, 4, 32, 128], [11, 128, 4, 32] -> outputs=[11, 32, 4, 32]",11534336
+diffusion_step_fp16.onnx,549,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,560,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,564,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,566,MatMul,"inputs=[11, 32, 128], [128, 512] -> outputs=[11, 32, 512]",46137344
+diffusion_step_fp16.onnx,571,MatMul,"inputs=[11, 32, 128], [128, 256] -> outputs=[11, 32, 256]",23068672
+diffusion_step_fp16.onnx,573,MatMul,"inputs=[11, 32, 256], [256, 128] -> outputs=[11, 32, 128]",23068672
+diffusion_step_fp16.onnx,584,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,588,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,591,Einsum,"inputs=[1, 22, 16, 128], [22, 88] -> outputs=[1, 88, 16, 128]",7929856
+diffusion_step_fp16.onnx,593,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,596,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,598,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,600,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,602,Einsum,"inputs=[11, 32, 4, 32], [11, 128, 4, 32] -> outputs=[11, 4, 32, 128]",11534336
+diffusion_step_fp16.onnx,607,Softmax,"inputs=[11, 4, 32, 128] -> outputs=[11, 4, 32, 128]",901120
+diffusion_step_fp16.onnx,609,Einsum,"inputs=[11, 4, 32, 128], [11, 128, 4, 32] -> outputs=[11, 32, 4, 32]",11534336
+diffusion_step_fp16.onnx,612,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,623,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,627,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,629,MatMul,"inputs=[11, 32, 128], [128, 512] -> outputs=[11, 32, 512]",46137344
+diffusion_step_fp16.onnx,634,MatMul,"inputs=[11, 32, 128], [128, 256] -> outputs=[11, 32, 256]",23068672
+diffusion_step_fp16.onnx,636,MatMul,"inputs=[11, 32, 256], [256, 128] -> outputs=[11, 32, 128]",23068672
+diffusion_step_fp16.onnx,640,MatMul,"inputs=[1, 352, 128], [128, 768] -> outputs=[1, 352, 768]",69206016
+diffusion_step_fp16.onnx,642,MatMul,"inputs=[1, 46, 352], [1, 352, 768] -> outputs=[1, 46, 768]",24870912
+diffusion_step_fp16.onnx,648,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,658,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,662,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,664,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,667,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,669,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,671,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,673,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,678,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,680,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,683,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,694,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,698,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,700,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,705,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,707,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,718,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,722,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,724,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,727,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,729,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,731,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,733,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,738,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,740,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,743,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,754,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,758,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,760,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,765,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,767,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,778,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,782,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,784,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,787,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,789,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,791,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,793,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,798,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,800,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,803,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,814,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,818,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,820,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,825,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,827,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,838,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,842,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,844,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,847,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,849,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,851,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,853,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,858,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,860,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,863,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,874,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,878,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,880,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,885,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,887,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,898,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,902,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,904,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,907,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,909,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,911,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,913,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,918,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,920,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,923,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,934,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,938,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,940,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,945,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,947,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,958,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,962,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,964,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,967,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,969,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,971,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,973,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,978,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,980,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,983,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,994,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,998,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1000,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1005,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1007,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1018,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1022,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1024,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1027,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1029,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1031,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1033,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1038,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1040,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1043,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1054,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1058,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1060,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1065,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1067,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1078,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1082,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1084,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1087,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1089,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1091,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1093,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1098,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1100,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1103,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1114,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1118,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1120,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1125,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1127,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1138,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1142,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1144,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1147,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1149,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1151,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1153,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1158,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1160,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1163,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1174,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1178,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1180,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1185,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1187,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1198,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1202,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1204,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1207,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1209,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1211,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1213,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1218,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1220,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1223,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1234,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1238,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1240,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1245,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1247,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1258,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1262,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1264,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1267,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1269,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1271,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1273,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1278,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1280,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1283,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1294,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1298,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1300,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1305,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1307,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1318,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1322,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1324,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1327,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1329,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1331,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1333,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1338,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1340,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1343,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1354,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1358,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1360,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1365,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1367,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1378,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1382,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1384,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1387,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1389,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1391,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1393,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1398,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1400,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1403,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1414,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1418,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1420,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1425,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1427,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1438,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1442,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1444,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1447,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1449,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1451,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1453,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1458,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1460,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1463,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1474,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1478,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1480,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1485,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1487,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1498,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1502,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1504,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1507,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1509,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1511,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1513,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1518,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1520,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1523,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1534,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1538,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1540,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1545,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1547,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1558,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1562,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1564,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1567,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1569,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1571,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1573,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1578,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1580,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1583,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1594,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1598,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1600,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1605,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1607,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1618,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1622,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1624,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1627,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1629,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1631,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1633,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1638,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1640,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1643,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1654,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1658,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1660,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1665,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1667,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1678,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1682,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1684,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1687,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1689,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1691,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1693,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1698,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1700,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1703,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1714,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1718,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1720,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1725,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1727,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1738,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1742,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1744,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1747,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1749,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1751,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1753,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1758,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1760,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1763,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1774,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1778,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1780,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1785,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1787,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1798,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1802,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1804,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1807,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1809,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1811,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1813,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1818,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1820,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1823,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1834,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1838,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1840,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1845,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1847,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1858,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1862,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1864,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1867,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1869,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1871,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1873,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1878,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1880,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1883,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1894,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1898,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1900,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1905,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1907,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1918,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1922,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1924,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1927,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1929,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1931,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1933,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1938,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,1940,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,1943,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1954,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1958,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1960,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,1965,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,1967,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,1978,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1982,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1984,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1987,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1989,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1991,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,1993,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,1998,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,2000,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,2003,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2014,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2018,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2020,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,2025,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,2027,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,2038,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2042,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2044,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2047,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2049,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2051,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2053,Einsum,"inputs=[1, 46, 16, 48], [1, 46, 16, 48] -> outputs=[1, 16, 46, 46]",3250176
+diffusion_step_fp16.onnx,2058,Softmax,"inputs=[1, 16, 46, 46] -> outputs=[1, 16, 46, 46]",169280
+diffusion_step_fp16.onnx,2060,Einsum,"inputs=[1, 16, 46, 46], [1, 46, 16, 48] -> outputs=[1, 46, 16, 48]",3250176
+diffusion_step_fp16.onnx,2063,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2074,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2078,MatMul,"inputs=[1, 46, 768], [768, 768] -> outputs=[1, 46, 768]",54263808
+diffusion_step_fp16.onnx,2080,MatMul,"inputs=[1, 46, 768], [768, 3072] -> outputs=[1, 46, 3072]",217055232
+diffusion_step_fp16.onnx,2085,MatMul,"inputs=[1, 46, 768], [768, 1536] -> outputs=[1, 46, 1536]",108527616
+diffusion_step_fp16.onnx,2087,MatMul,"inputs=[1, 46, 1536], [1536, 768] -> outputs=[1, 46, 768]",108527616
+diffusion_step_fp16.onnx,2095,MatMul,"inputs=[1, 46, 768], [768, 128] -> outputs=[1, 46, 128]",9043968
+diffusion_step_fp16.onnx,2096,MatMul,"inputs=[1, 352, 46], [1, 46, 128] -> outputs=[1, 352, 128]",4145152
+diffusion_step_fp16.onnx,2107,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2111,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2114,Einsum,"inputs=[1, 22, 16, 128], [22, 88] -> outputs=[1, 88, 16, 128]",7929856
+diffusion_step_fp16.onnx,2116,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2119,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,2121,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,2123,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2125,Einsum,"inputs=[11, 32, 4, 32], [11, 128, 4, 32] -> outputs=[11, 4, 32, 128]",11534336
+diffusion_step_fp16.onnx,2130,Softmax,"inputs=[11, 4, 32, 128] -> outputs=[11, 4, 32, 128]",901120
+diffusion_step_fp16.onnx,2132,Einsum,"inputs=[11, 4, 32, 128], [11, 128, 4, 32] -> outputs=[11, 32, 4, 32]",11534336
+diffusion_step_fp16.onnx,2135,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2146,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2150,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2152,MatMul,"inputs=[11, 32, 128], [128, 512] -> outputs=[11, 32, 512]",46137344
+diffusion_step_fp16.onnx,2157,MatMul,"inputs=[11, 32, 128], [128, 256] -> outputs=[11, 32, 256]",23068672
+diffusion_step_fp16.onnx,2159,MatMul,"inputs=[11, 32, 256], [256, 128] -> outputs=[11, 32, 128]",23068672
+diffusion_step_fp16.onnx,2170,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2174,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2177,Einsum,"inputs=[1, 22, 16, 128], [22, 88] -> outputs=[1, 88, 16, 128]",7929856
+diffusion_step_fp16.onnx,2179,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2182,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,2184,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,2186,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2188,Einsum,"inputs=[11, 32, 4, 32], [11, 128, 4, 32] -> outputs=[11, 4, 32, 128]",11534336
+diffusion_step_fp16.onnx,2193,Softmax,"inputs=[11, 4, 32, 128] -> outputs=[11, 4, 32, 128]",901120
+diffusion_step_fp16.onnx,2195,Einsum,"inputs=[11, 4, 32, 128], [11, 128, 4, 32] -> outputs=[11, 32, 4, 32]",11534336
+diffusion_step_fp16.onnx,2198,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2209,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2213,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2215,MatMul,"inputs=[11, 32, 128], [128, 512] -> outputs=[11, 32, 512]",46137344
+diffusion_step_fp16.onnx,2220,MatMul,"inputs=[11, 32, 128], [128, 256] -> outputs=[11, 32, 256]",23068672
+diffusion_step_fp16.onnx,2222,MatMul,"inputs=[11, 32, 256], [256, 128] -> outputs=[11, 32, 128]",23068672
+diffusion_step_fp16.onnx,2233,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2237,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2240,Einsum,"inputs=[1, 22, 16, 128], [22, 88] -> outputs=[1, 88, 16, 128]",7929856
+diffusion_step_fp16.onnx,2242,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2245,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,2247,MatMul,"inputs=[11, 128, 128], [128, 128] -> outputs=[11, 128, 128]",46137344
+diffusion_step_fp16.onnx,2249,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2251,Einsum,"inputs=[11, 32, 4, 32], [11, 128, 4, 32] -> outputs=[11, 4, 32, 128]",11534336
+diffusion_step_fp16.onnx,2256,Softmax,"inputs=[11, 4, 32, 128] -> outputs=[11, 4, 32, 128]",901120
+diffusion_step_fp16.onnx,2258,Einsum,"inputs=[11, 4, 32, 128], [11, 128, 4, 32] -> outputs=[11, 32, 4, 32]",11534336
+diffusion_step_fp16.onnx,2261,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2272,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2276,MatMul,"inputs=[11, 32, 128], [128, 128] -> outputs=[11, 32, 128]",11534336
+diffusion_step_fp16.onnx,2278,MatMul,"inputs=[11, 32, 128], [128, 512] -> outputs=[11, 32, 512]",46137344
+diffusion_step_fp16.onnx,2283,MatMul,"inputs=[11, 32, 128], [128, 256] -> outputs=[11, 32, 256]",23068672
+diffusion_step_fp16.onnx,2285,MatMul,"inputs=[11, 32, 256], [256, 128] -> outputs=[11, 32, 128]",23068672
+diffusion_step_fp16.onnx,2294,MatMul,"inputs=[1, 352, 128], [128, 3] -> outputs=[1, 352, 3]",270336

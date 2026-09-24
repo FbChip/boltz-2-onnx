@@ -28,6 +28,14 @@ python tools/analyze_diffusion_graph.py fp16/trunk_fp16.onnx
 
 The cost and traffic values are static planning estimates based on inferred shapes, not measured runtime.
 
+To export every `MatMul`, `Einsum`, and `Softmax` with tensor shapes and estimated FLOPs for both fp16 graphs:
+
+```bash
+python tools/export_operator_report.py
+```
+
+This writes `fp16/trunk_fp16_operator_report.csv`, `fp16/diffusion_step_fp16_operator_report.csv`, and the combined `fp16_operator_report.csv`. Estimates are static graph-analysis values, not measured runtime.
+
 This is **v0**: single-sequence protein only, no MSA, no templates, no affinity head. Confidence and full-atom output included. Three precision tiers.
 
 ## What's here
